@@ -16,6 +16,10 @@
  <div>
 <label>
 <input type="radio" name="r1" value="add" />addition
+<label>
+<input type="radio" name="r1" value="sub" />difference
+<br />
+</label>
 <br />
 </label>
 </div>
