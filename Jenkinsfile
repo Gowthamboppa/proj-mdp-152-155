@@ -4,7 +4,7 @@ pipeline{
 	agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('Gowthamboppa')
+		DOCKERHUB_CREDENTIALS=credentials('gowthamboppa')
 	}
 
 	stages {
