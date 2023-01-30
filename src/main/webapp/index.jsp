@@ -16,12 +16,7 @@
  <div>
 <label>
 <input type="radio" name="r1" value="add" />addition
-</label>
-    
-<label>
-<input type="radio" name="r1" value="sub" />product
-<br />
-</label>       
+</label>      
 <br />
 </label>       
 </div>
