@@ -12,7 +12,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t gowthamboppa/mycal:v1 .'
+				sh 'docker build -t gowthamboppa/cal:v1.0 .'
 			}
 		}
 
@@ -26,7 +26,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push gowthamboppa/mycal:v1'
+				sh 'docker push  gowthamboppa/cal:v1.0'
 			}
 		}
 	}
@@ -38,4 +38,3 @@ pipeline{
 	}
 
 }
-
