@@ -29,7 +29,6 @@ pipeline {
 				sh 'docker push  gowthamboppa/cal:v1.0'
 			}
 		}
-	}
 
 
 
