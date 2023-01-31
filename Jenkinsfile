@@ -1,5 +1,5 @@
 
-pipeline{
+pipeline {
 
 	agent any
 
