@@ -12,16 +12,6 @@ pipeline {
                 sh 'docker build -t gowthamboppa/cal:v1.0 .'
             }   
         }
-        stage('Remove existing container') {
-            steps {
-                sh 'docker container rm -f app'
-            }
-        }
-        stage('Run container') {
-            steps {
-                sh 'docker container run -dt --name app -P gowthamboppa/cal:v1.0'
-            }
-        }
         stage('login') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -32,6 +22,16 @@ pipeline {
                 sh 'docker push gowthamboppa/cal:v1.0'
             }
         }
+        stage('Remove existing container') {
+            steps {
+                sh 'docker container rm -f app'
+            }
+        }
+        stage('Run container') {
+            steps {
+                sh 'docker container run -dt --name app -P gowthamboppa/cal:v1.0'
+            }
+
     }
     post {
         always {
