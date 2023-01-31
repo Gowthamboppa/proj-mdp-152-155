@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Run container') {
             steps {
-                sh 'docker container run -dt --name app -P  gowthamboppa/cal:v1.0 '
+                sh 'docker container run -dt --name app -p 9090  gowthamboppa/cal:v1.0 '
                 sh 'docker container ls'
             }
         }
