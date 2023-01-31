@@ -1,12 +1,15 @@
 pipeline {
     agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('arshaqsidhiqe-dockerhub')
+        DOCKERHUB_CREDENTIALS = credentials('gowthamboppa')
     }
     stages {
         stage('Build docker image') {
             steps {
-                sh 'docker build -t arshaqsidhiqe/java-app:latest .'
+                sh 'docker build -t gowthamboppa/cal:v1.0 .'
             }   
         }
         stage('Remove existing container') {
@@ -16,7 +19,7 @@ pipeline {
         }
         stage('Run container') {
             steps {
-                sh 'docker container run -dt --name app -P arshaqsidhiqe/java-app'
+                sh 'docker container run -dt --name app -P gowthamboppa/cal:v1.0'
             }
         }
         stage('login') {
@@ -26,7 +29,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker push arshaqsidhiqe/java-app:latest'
+                sh 'docker push gowthamboppa/cal:v1.0'
             }
         }
     }
