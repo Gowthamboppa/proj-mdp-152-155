@@ -28,14 +28,10 @@ pipeline {
         stage('Run container') {
             steps {
                 sh 'docker container run -dt --name app -P  gowthamboppa/cal:v1.0 '
-                
-            }
-        }
-        stage('Run container'){
-            steps {
                 sh 'docker container ls'
             }
         }
+    
     }
     
 }
