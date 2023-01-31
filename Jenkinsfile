@@ -31,8 +31,7 @@ pipeline {
             steps {
                 sh 'docker container run -dt --name app -P gowthamboppa/cal:v1.0'
             }
-
-    }
+        }
     post {
         always {
             sh 'docker logout'
