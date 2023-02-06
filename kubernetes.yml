@@ -1,0 +1,93 @@
+---
+ - name: CREATING THE K8S WORKSTATION
+   hosts: all
+   become: yes
+
+  
+
+   tasks:
+   - name: DOWNLOADING THE AWS CLI ZIP FILE 
+     get_url:
+      url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+      dest: /home/centos/
+
+   - name: INSTALLING UNZIP
+     yum:
+        name: unzip
+        state: latest
+   - name: UNZIPPING THE AWS CLI 
+     unarchive:
+        src: /home/centos/awscli-exe-linux-x86_64.zip
+        dest: /home/centos/
+        remote_src: yes
+   - name: RUN THE COMMAND
+     command: ./aws/install --update
+     
+     
+   - name: DOWNLOADING THE KOPS BINARY
+     get_url:
+        url: https://github.com/kubernetes/kops/releases/download/v1.20.0/kops-linux-amd64
+        dest: /usr/local/bin/kops
+     
+   - name: MAKE KOPS BINARY EXECUTABLE
+     command: chmod +x /usr/local/bin/kops
+
+   - name: DOWNLOADING KUBECTL BINARY
+     get_url:
+        url: https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl
+        dest: /usr/local/bin/kubectl
+
+    
+
+   - name: MAKE KUBECTL BINARY EXECUTABLE
+     command: chmod +x /usr/local/bin/kubectl
+
+   - name: INSTALL PYTHON 3
+     yum:
+      name: python3
+      state: present
+
+   - name: INSTALLING PIP
+     yum:
+      name: python3-pip
+      state: present
+
+   - name: INSTALL boto3 AND botocore 
+     pip:
+      name:
+        - boto3
+        - botocore
+      state: present
+      executable: pip3
+   - name: MAKING BUCKET
+     vars:
+        ansible_python_interpreter: /usr/bin/python3
+        aws_access_key: "{{ lookup('env', 'mys3user') }}"
+        aws_secret_key: "{{ lookup('env', 'YgY6A1@Q') }}"
+     s3_bucket:
+      name: sindhu123456
+      state: present
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+     environment:
+      KOPS_STATE_STORE: s3://sindhu123456
+  
+
+   - name: GENERATING SSH KEYPAIR
+     openssh_keypair:
+        path: /home/centos/.ssh/id_rsa
+        state: present
+
+
+   - name: CREATING K8S CLUSTER
+     shell: /usr/local/bin/kops create cluster --yes --state=s3://sindhu123456 --zones=us-east-1a,us-east-1b --node-count=2   --name=boppa.k8s.local --ssh-public-key /home/centos/.ssh/id_rsa.pub 
+ 
+          
+        
+  
+        
+...
+
+
+
+
