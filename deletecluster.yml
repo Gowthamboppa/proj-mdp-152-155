@@ -8,6 +8,6 @@
    tasks:
 
    - name: DELETING CLUSTER
-     shell: /usr/local/bin/kops delete cluster --name=boppa.k8s.local --yes  --state=s3://sindhu123456   
+     shell: /usr/local/bin/kops delete cluster --name=boppa.k8s.local --yes  --state=s3://gowthamboppa2  
  
           
