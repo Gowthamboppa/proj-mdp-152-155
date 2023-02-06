@@ -65,12 +65,12 @@
         aws_access_key: "{{ lookup('env', 'mys3user') }}"
         aws_secret_key: "{{ lookup('env', 'YgY6A1@Q') }}"
      s3_bucket:
-      name: sindhu123456
+      name: gowthamboppa2
       state: present
       aws_access_key: "{{ aws_access_key }}"
       aws_secret_key: "{{ aws_secret_key }}"
      environment:
-      KOPS_STATE_STORE: s3://sindhu123456
+      KOPS_STATE_STORE: s3://gowthamboppa2
   
 
    - name: GENERATING SSH KEYPAIR
@@ -80,7 +80,7 @@
 
 
    - name: CREATING K8S CLUSTER
-     shell: /usr/local/bin/kops create cluster --yes --state=s3://sindhu123456 --zones=us-east-1a,us-east-1b --node-count=2   --name=boppa.k8s.local --ssh-public-key /home/centos/.ssh/id_rsa.pub 
+     shell: /usr/local/bin/kops create cluster --yes --state=s3://gowthamboppa2 --zones=us-east-1a,us-east-1b --node-count=2   --name=boppa.k8s.local --ssh-public-key /home/centos/.ssh/id_rsa.pub 
  
           
         
