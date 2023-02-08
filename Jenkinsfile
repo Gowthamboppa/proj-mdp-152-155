@@ -14,7 +14,7 @@ pipeline {
                 label 'k8swrknode'
             }
             steps{
-                sh 'ls'
+                sh 'ls /usr/local/bin/'
             }
         }       
         
