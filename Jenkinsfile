@@ -19,18 +19,12 @@ pipeline {
                 sh 'docker push  gowthamboppa/cal:v1.0'
             }
         }
-        stage('Remove existing container'){
-            steps {
-                sh 'docker container rm -f app'
-
+        stage('connecting to k8s'){
+            agent {
+                label 'k8swrknode'
             }
-        }
-        stage('Run container') {
             steps {
-                sh 'docker container run -dt --name app -p 80:8080  gowthamboppa/cal:v1.0 '
-                sh 'docker container ls'
-            }
-        }
+                sh 'kubectl get kops'
     
     }
     
