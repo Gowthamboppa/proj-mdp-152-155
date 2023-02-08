@@ -13,6 +13,9 @@ pipeline {
             agent{
                 label 'k8swrknode'
             }
+            steps{
+                sh 'ls'
+            }
         }       
         
         }    
