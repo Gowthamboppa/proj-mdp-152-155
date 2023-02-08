@@ -22,7 +22,7 @@ pipeline {
                 sh 'docker push  gowthamboppa/cal:v1.0'
             }
         }
-        stage('Remove existing container'){
+        stage('Remove existing container') {
             steps {
                 sh 'docker container rm -f app'
 
