@@ -26,7 +26,6 @@ pipeline {
             steps{
                 sh 'ls /usr/local/bin/'
                 sh 'aws s3 ls'
-                sh 'ls'
             }
         }       
         
