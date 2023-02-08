@@ -27,6 +27,9 @@ pipeline {
                 sh 'ls /usr/local/bin/'
                 sh 'aws s3 ls'
             }
+            steps{
+                sh kops 'get cluster'
+            }
         }       
         
         }    
