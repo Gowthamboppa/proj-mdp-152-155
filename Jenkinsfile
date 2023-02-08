@@ -26,7 +26,7 @@ pipeline {
             steps{
                 sh 'ls /usr/local/bin/'
                 sh 'aws s3 ls'
-                sh 'kops'
+                sh 'kops get cluster --state=s3://gowthamboppa2'
             }
         }       
         
