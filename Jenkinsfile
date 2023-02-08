@@ -27,6 +27,7 @@ pipeline {
                 sh 'ls /usr/local/bin/'
                 sh 'aws s3 ls'
                 sh 'kops get cluster --state=s3://gowthamboppa2'
+                sh 'kubectl get pods'
             }
         }       
         
