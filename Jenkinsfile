@@ -28,7 +28,7 @@ pipeline {
                 sh 'aws s3 ls'
             }
             steps{
-                sh 'kops get cluster --state=s3://gowthamboppa2 --ssh-public-key /home/centos/.ssh/id_rsa.pub '
+                sh '/usr/local/bin/kops get cluster --state=s3://gowthamboppa2 --ssh-public-key /home/centos/.ssh/id_rsa.pub '
             }
         }       
         
