@@ -4,17 +4,15 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('docker-1')
     }
     stages {
-        stage ('connecting to master node') {
-            agent{
-                label 'master'
-            }
-            steps{
-                sh 'ls'
-            }
-
+        stage('Build docker image') {
+            steps {
+                sh 'docker build -t gowthamboppa/cal:v1.0 .'
+            }   
         }
-
-
+        
+        }    
+    
     }
-}
+     
+
 
