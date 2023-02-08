@@ -4,6 +4,9 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('docker-1')
     }
     stages {
+        agent{
+            label 'master'
+        }
         stage('Build docker image') {
             steps {
                 sh 'docker build -t gowthamboppa/cal:v1.0 .'
