@@ -9,6 +9,11 @@ pipeline {
                 sh 'docker build -t gowthamboppa/cal:v1.0 .'
             }   
         }
+        stage('connecting to master'){
+            agent{
+                label 'k8swrknode'
+            }
+        }       
         
         }    
     
