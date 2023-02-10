@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector: myapp
