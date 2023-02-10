@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('docker-1')
+        DOCKERHUB_CREDENTIALS = credentials('docker cred')
     }
     stages {
         stage('Build docker image') {
@@ -21,13 +21,11 @@ pipeline {
         }
         stage('connecting to master'){
             agent{
-                label 'k8swrknode'
+                label '	k8snode'
             }
             steps{
                 sh 'ls /usr/local/bin/'
                 sh 'aws s3 ls'
-                sh 'kops get cluster --state=s3://gowthamboppa2'
-                sh 'kubectl run web --image=httpd'
 
             }
         }       
