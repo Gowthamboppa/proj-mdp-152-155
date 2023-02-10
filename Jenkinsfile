@@ -31,9 +31,7 @@ pipeline {
                 sh 'git clone -b project-3 https://github.com/Gowthamboppa/proj-mdp-152-155.git'
                 sh 'cd proj-mdp-152-155'
                 sh 'ls'
-                sh 'kubectl apply -f deployment.yml'
-                sh 'kubectl get pods'
-            }
+        
         }       
         
         }    
