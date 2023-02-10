@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Service
 metadata:
   name: myapp
@@ -6,4 +6,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
-  selector: myapp
+  selector: 
+    app: myapp
+    
