@@ -21,7 +21,7 @@ pipeline {
         }
         stage('connecting to master'){
             agent{
-                label '	k8snode'
+                label 'k8s-exp-1'
             }
             steps{
                 sh 'ls /usr/local/bin/'
