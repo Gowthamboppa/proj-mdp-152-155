@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build docker image') {
             steps {
-                sh 'docker build -t gowthamboppa/cal:v1.0 .'
+                sh 'sudo docker build -t gowthamboppa/cal:v1.0 .'
             }   
         }
         stage('login') {
