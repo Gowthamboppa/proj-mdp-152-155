@@ -27,11 +27,10 @@ pipeline {
                 sh 'ls /usr/local/bin/'
                 sh 'aws s3 ls'
                 sh 'kops get cluster --state=s3://gowthamboppa'
-                sh 'sudo rm -r proj-mdp-152-155'
-                sh 'git clone -b project-3 https://github.com/Gowthamboppa/proj-mdp-152-155.git'
-                sh 'cd proj-mdp-152-155'
-                sh 'ls'
                 sh 'kubectl apply -f deployment.yml'
+                sh 'kubectl get pods'
+                sh 'kubectl apply -f service.yml'
+                sh 'kubectl get services'
             }
         }       
         
