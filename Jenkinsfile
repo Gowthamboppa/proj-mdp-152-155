@@ -16,19 +16,19 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker push  gowthamboppa/cal:v1.0'
+                sh 'sudo docker push  gowthamboppa/cal:v1.0'
             }
         }
         stage('Remove existing container'){
             steps {
-                sh 'docker container rm -f app'
+                sh 'sudo docker container rm -f app'
 
             }
         }
         stage('Run container') {
             steps {
-                sh 'docker container run -dt --name app -p 80:8080  gowthamboppa/cal:v1.0 '
-                sh 'docker container ls'
+                sh 'sudo docker container run -dt --name app -p 80:8080  gowthamboppa/cal:v1.0 '
+                sh 'sudo docker container ls'
             }
         }
     
