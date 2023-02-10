@@ -26,7 +26,7 @@ pipeline {
             steps{
                 sh 'ls /usr/local/bin/'
                 sh 'aws s3 ls'
-                sh 'kops get cluster --state=s3://gowthamboppa'
+                sh 'kops get cluster --state=s3://gowthamboppa2'
                 sh 'kubectl apply -f deployment.yml'
                 sh 'kubectl get pods'
                 sh 'kubectl apply -f service.yml'
