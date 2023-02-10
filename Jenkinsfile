@@ -27,12 +27,10 @@ pipeline {
                 sh 'ls /usr/local/bin/'
                 sh 'aws s3 ls'
                 sh 'kops get cluster --state=s3://gowthamboppa'
-            }
-            steps{
                 sh 'sudo rm -r proj-mdp-152-155'
-            }
-            steps{
                 sh 'git clone -b project-3 https://github.com/Gowthamboppa/proj-mdp-152-155.git'
+                sh 'cd proj-mdp-152-155'
+                sh 'ls'
             }
         }       
         
