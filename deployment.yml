@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: tomcat-deployment
   labels:
-    app: myapp
+    app: tomcat
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myapp
+      app: tomcat
   template:
     metadata:
       labels:
-        app: myapp
+        app: tomcat
     spec:
       containers:
-      - name: myapp
+      - name: tomcat
         image: gowthamboppa/cal:v1.0
         ports:
         - containerPort: 8080
