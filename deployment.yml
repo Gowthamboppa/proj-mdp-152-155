@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: gowthamboppa/cal:v1.0
+        image: gowthamboppa/cal:v1
         ports:
         - containerPort: 80
