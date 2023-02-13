@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('docker cred')
+        DOCKERHUB_CREDENTIALS = credentials('kubernetes')
     }
     stages {
         stage('Build docker image') {
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('connecting to master'){
             agent{
-                label 'k8s-exp-1'
+                label 'aaaaaaaaaaaass'
             }
             steps{
                 sh 'ls /usr/local/bin/'
