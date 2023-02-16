@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build docker image') {
             steps {
-                sh 'docker build -t gowthamboppa/cal:v1.'
+                sh 'docker build -t gowthamboppa/cal:v1.0 .'
             }   
         }
         stage('login') {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker push  gowthamboppa/cal:v1'
+                sh 'docker push  gowthamboppa/cal:v1.0'
             }
         }
         stage('connecting to master'){

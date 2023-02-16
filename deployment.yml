@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: gowthamboppa/cal:v1
+        image: gowthamboppa/cal:v1.0
         ports:
         - containerPort: 8080
