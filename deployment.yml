@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tomcat-deployment
+  name: tomcat
   labels:
     app: tomcat
 spec:
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: gowthamboppa/cal:v1.0
+        image: gowthamboppa/cal:v1
         ports:
         - containerPort: 8080
